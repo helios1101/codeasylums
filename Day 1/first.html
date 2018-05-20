@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/style.css" class="style">
+	<style>
+		/*inline>internal>external*/
+		/*id>class>element*/
+		p{
+			background-color: grey; 
+		}
+		/*if there is multiple class like a {attri} then, a b{attri} it will only apply to b*/
+		/*ol.one{
+			background: orange;          
+		}*/
+		.block{
+			background: orange;
+			
+		}
+		.block a:link{
+			background: grey;
+		}
+		
+		.block a:visited{
+			background: white;
+		}
+		.block a:hover{
+			transform: scale(2.1);
+			background: red;
+		}
+		.block a:active{
+			background: yellow;
+		}
+
+	</style>
+</head>
+<body>
+	<a href="second.html">First Name</a>
+	<br>
+	<form method="post" action="second.html">   <!-- if written then 2nd priority-->
+		<input type="text" value="Hey" placeholder="First Name">First Name
+		<br>
+		<input type="text">Second Name
+		<br>
+		<button><a href="https://www.google.com">Google</a></button>   <!-- works on chrome --> 
+		<br>
+		<button><a href="https://www.facebook.com">Facebbok</a></button>  <!-- works on chrome -->
+		<br>
+		<input type="button" value="Action page" onclick="window.location.href='action.html'" />  
+		<!-- works on all -->
+		<!-- Priority highest of this -->
+	</form>
+
+	<!-- CSS -->
+	<center>
+	<span style="width:20%;background: grey;border: 4px dashed black;font-family: sans-serif;color:black;font-size: 20px;display: block;text-align: center;box-shadow:5px 5px white inset;">Button</span>
+	</center>
+
+	<div>
+		<p class="deco">Likes          <!-- Right has almost priority in id,class,p tags-->
+			<ol id="one1" class="one two+- bbbbb
+			">
+				<li>Lorem ipsum sit ammet</li>
+				<li>Lorem ipsum sit ammet</li>
+				<li>Lorem ipsum sit ammet</li>
+			</ol>
+		<p class="deco">DIsLikes
+			<ol class="two">
+				<li>Lorem ipsum sit ammet</li>
+				<li>Lorem ipsum sit ammet</li>
+				<li>Lorem ipsum sit ammet</li>
+			</ol>
+		<p>UnLikes
+			<ol class="three">
+				<li>Lorem ipsum sit ammet</li>
+				<li>Lorem ipsum sit ammet</li>
+				<li>Lorem ipsum sit ammet</li>
+			</ol>
+	</div>
+	<!-- After break -->
+<div class="block">
+	<a href="second.html">hello</a>
+	<center>
+		<button><a href="second.html" target="_blank">press me</a></button> 
+		<!-- button not work on link and visited -->
+	</center>
+		
+</div>
+
+</body>
+</html>
