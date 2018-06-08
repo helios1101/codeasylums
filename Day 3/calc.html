@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Calculator</title>
+</head>
+<body>
+	<input type="text" id="i1" placeholder="Enter bigger number">
+	<input type="text" id="i2" placeholder="Enter bigger number">
+	<br>
+	<br>
+	<button id="b1" onclick="add()">Addition</button>
+	<button id="b2" onclick="sub()">Subtraction</button>
+	<button id="b3" onclick="mul()">Multiply</button>
+	<button id="b4" onclick="div()">Divide</button>
+	<button>
+		
+	</button>
+	<br>
+	<h1>Answer is</h1> 
+	<input type="type" id="o1" placeholder="Wait patiently">
+	<script>
+		function add(){
+			var op1= document.getElementById('i1').value;
+			var op2= document.getElementById('i2').value;
+			var op3=parseInt(op1+op2);
+			document.getElementById('o1').value=parseInt(op1+op2);
+		}
+		function sub(){
+			var op4= document.getElementById('i1').value;
+			var op5= document.getElementById('i2').value;
+			var op6=parseInt(op4-op5);
+			document.getElementById('o1').value=parseInt(op4-op5);
+		}
+		function mul() {
+			var op7= document.getElementById('i1').value;
+			var op8= document.getElementById('i2').value;
+			var op9=parseInt(op7*op8);
+			document.getElementById('o1').value=parseInt(op7*op8);
+		}
+		function div() {
+			var op10= document.getElementById('i1').value;
+			var op11= document.getElementById('i2').value;
+			var op12=parseInt(op10/op11);
+			document.getElementById('o1').value=parseInt(op10/op11);
+		}
+	</script>
+</body>
+</html>
