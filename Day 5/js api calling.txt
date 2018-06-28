@@ -1,0 +1,52 @@
+<!-- !st calling an api -->
+function reqListener () {
+  console.log(this.responseText);
+}
+
+var oReq = new XMLHttpRequest();
+oReq.addEventListener("load", reqListener);
+oReq.open("GET", "https://api.coindesk.com/v1/bpi/currentprice.json");
+oReq.send();
+undefined
+VM220:2 {"time":{"updated":"May 24, 2018 16:50:00 UTC","updatedISO":"2018-05-24T16:50:00+00:00","updateduk":"May 24, 2018 at 17:50 BST"},"disclaimer":"This data was produced from the CoinDesk Bitcoin Price Index (USD). Non-USD currency data converted using hourly conversion rate from openexchangerates.org","chartName":"Bitcoin","bpi":{"USD":{"code":"USD","symbol":"&#36;","rate":"7,511.6125","description":"United States Dollar","rate_float":7511.6125},"GBP":{"code":"GBP","symbol":"&pound;","rate":"5,612.8872","description":"British Pound Sterling","rate_float":5612.8872},"EUR":{"code":"EUR","symbol":"&euro;","rate":"6,404.4459","description":"Euro","rate_float":6404.4459}}}
+typeof(this.responseText)
+"undefined"
+function reqListener () {
+  console.log(this.responseText);
+	console.log(typeof(this.responseText));
+}
+
+var oReq = new XMLHttpRequest();
+oReq.addEventListener("load", reqListener);
+oReq.open("GET", "https://api.coindesk.com/v1/bpi/currentprice.json");
+oReq.send();
+undefined
+VM248:2 {"time":{"updated":"May 24, 2018 16:59:00 UTC","updatedISO":"2018-05-24T16:59:00+00:00","updateduk":"May 24, 2018 at 17:59 BST"},"disclaimer":"This data was produced from the CoinDesk Bitcoin Price Index (USD). Non-USD currency data converted using hourly conversion rate from openexchangerates.org","chartName":"Bitcoin","bpi":{"USD":{"code":"USD","symbol":"&#36;","rate":"7,512.5825","description":"United States Dollar","rate_float":7512.5825},"GBP":{"code":"GBP","symbol":"&pound;","rate":"5,613.6120","description":"British Pound Sterling","rate_float":5613.612},"EUR":{"code":"EUR","symbol":"&euro;","rate":"6,405.2729","description":"Euro","rate_float":6405.2729}}}
+VM248:3 string
+
+<!-- Then printing -->
+function reqListener () {
+ let o=JSON.parse(this.responseText);
+	console.log(o);
+}
+
+var oReq = new XMLHttpRequest();
+oReq.addEventListener("load", reqListener);
+oReq.open("GET", "https://api.coindesk.com/v1/bpi/currentprice.json");
+oReq.send();
+undefined
+VM308:3 {time: {…}, disclaimer: "This data was produced from the CoinDesk Bitcoin P…hourly conversion rate from openexchangerates.org", chartName: "Bitcoin", bpi: {…}}bpi: {USD: {…}, GBP: {…}, EUR: {…}}EUR: {code: "EUR", symbol: "&euro;", rate: "6,404.4312", description: "Euro", rate_float: 6404.4312}GBP: {code: "GBP", symbol: "&pound;", rate: "5,613.0517", description: "British Pound Sterling", rate_float: 5613.0517}USD: {code: "USD", symbol: "&#36;", rate: "7,513.8338", description: "United States Dollar", rate_float: 7513.8338}__proto__: ObjectchartName: "Bitcoin"disclaimer: "This data was produced from the CoinDesk Bitcoin Price Index (USD). Non-USD currency data converted using hourly conversion rate from openexchangerates.org"time: {updated: "May 24, 2018 17:07:00 UTC", updatedISO: "2018-05-24T17:07:00+00:00", updateduk: "May 24, 2018 at 18:07 BST"}__proto__: Object
+temp1
+{time: {…}, disclaimer: "This data was produced from the CoinDesk Bitcoin P…hourly conversion rate from openexchangerates.org", chartName: "Bitcoin", bpi: {…}}
+temp1.bpi.USD.rate
+"7,513.8338"
+
+
+
+
+
+
+
+
+
+

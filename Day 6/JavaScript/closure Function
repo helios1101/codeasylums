@@ -1,0 +1,43 @@
+function x(){
+    for(let i=0;i<10;++i){
+setTimeout(()=>{
+console.log(i);
+},1000);
+    }
+}
+undefined
+x()
+undefined
+VM183:4 0
+VM183:4 1
+VM183:4 2
+VM183:4 3
+VM183:4 4
+VM183:4 5
+VM183:4 6
+VM183:4 7
+VM183:4 8
+VM183:4 9
+var i;
+function x(){
+    for(i=0;i<10;++i){
+setTimeout(()=>{
+console.log(i);
+},1000);
+    }
+}
+x()
+undefined
+10VM196:5 10
+
+function x(){
+var t;
+    for(t=0;t<10;++t){
+setTimeout(()=>{
+console.log(t);
+},1000);
+    }
+}
+x()
+undefined
+10VM201:6 10

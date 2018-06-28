@@ -1,0 +1,35 @@
+function Persone(name,gender){
+this.name=name,
+this.gender=gender,
+this.greeting=function(){
+console.log(this.name,this.gender);}
+}
+let o=new Persone('Alex','Male');
+undefined
+o
+Persone {name: "Alex", gender: "Male", greeting: ƒ}
+o.constructor.name
+"Persone"
+
+if(o instanceof Persone)
+{
+    console.log('yes');}
+VM328:3 yes
+undefined
+
+function Person(name,gender){
+this.name=name;
+this.gender=gender;
+return this;
+}
+undefined
+Person.call({},'hey','male')
+{name: "hey", gender: "male"}
+Person.call(window,'hey','male')
+Window {postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, frames: Window, …}
+temp1
+Window {postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, frames: Window, …}
+temp2
+Window {postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, frames: Window, …}
+temp2.name
+"hey"

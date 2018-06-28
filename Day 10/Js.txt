@@ -1,0 +1,24 @@
+var r="7,294.567"
+undefined
+typeof(r)
+"string"
+var s="7,294.567"
+undefined
+typeof(s)
+"string"
+var t="7294.567"
+undefined
+typeof(t)
+"string"
+t*'10'
+72945.67
+r*'10'
+NaN
+var ss="7,294.567"
+undefined
+var st="7294.567"
+undefined
+parseFloat(ss)
+7
+parseFloat(st)
+7294.567

@@ -1,0 +1,21 @@
+p= new Promise((resolve,reject)=>{
+setTimeout(()=>{
+let i=Math.ceil(Math.round()*10);
+resolve("hey")
+},500);
+});
+console.log('here')
+p.then(function(data){
+console.log('then 1',data)
+})
+p.then(function(data){
+console.log('then 2',data)
+})
+p.catch(function(err){
+console.log(err)
+})
+
+VM293:7 here
+Promise {<pending>}
+VM293:9 then 1 hey
+VM293:12 then 2 hey

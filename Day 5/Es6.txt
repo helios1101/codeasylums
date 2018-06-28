@@ -1,0 +1,98 @@
+function radius(r){
+var pi=3.14;
+return pi*r*r;
+}
+
+let radius=(r)=> {
+var pi=3.14;
+return pi*r*r;
+};
+
+let radius= r => 3.14*r*r;
+// All have same function in Es6
+
+[0,1,2].map(val=>val++);  //1,2,3
+
+//also very important fat arrow function comes with the binding , this scope can't access age , and we have to do bind.....
+var module={
+	age:30,
+	foo:function(){
+		setTimeout(function(){
+			console.log(this.age);
+		}.bind(this),100);
+	}
+};
+module.foo();
+// rather use a fat arrow function .....
+var module={
+	age:30,
+	foo:function(){
+		setTimeout(()=>{
+			console.log(this.age);
+		},100);
+	}
+};
+module.foo();
+// if using Jquery with fat arrow , it dosen't mean anything bcoz this is accessible outside...
+
+console.log("hello " + name + " hello")
+console.log(`hello {name} hello`)
+
+// Back ticks can resolve name wala issue
+
+var meats=['bacon','ham']
+var food = ['apples', ...meats , 'kiwi', 'rice']
+console.log(food);
+
+apples, bacon,ham,kiwi,rice 
+// Adding array in difernet array...spread operator
+
+class Person{
+	constructor(name,age,weight){
+		this.weight=weight;
+		this.name=name;
+		this.age=age;
+	}
+	displayWeight(){
+		console.log(this.weight);
+	}
+}
+
+let bucky= new Person("Bucky", 50 , 333);
+
+bucky.displayweight();
+// display the weight !
+
+
+// Generators 
+https://www.youtube.com/watch?v=2VUludkxZz0&index=7&list=PL6gx4Cwl9DGBhgcpA8eTYYWg7im72LgLt
+
+
+var f00{
+	bar:1,
+	baz:2
+};
+can also be done as,
+var {bar,baz}=foo;
+
+//
+function calBmi({height:w,weight:h,max=25,callback}){
+// now work with w , h...
+}
+
+callBmi({weight,height,callback:functin()})
+
+//order dosen't matter ...
+
+export var foo=3;
+export function bar(){
+}
+//another file ...
+import {foo as foolish} from "myModule";
+console.log(foolish); //3
+
+
+promise vs callback vs generator....
+https://www.youtube.com/watch?v=obaSQBBWZLk
+
+https://www.youtube.com/watch?v=s6SH72uAn3Q

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<!-- saved from url=(0060)http://ccoenraets.github.io/es6-tutorial-data/babel-webpack/ -->
+<html lang="en" class="gr__ccoenraets_github_io"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="http://ccoenraets.github.io/favicon.ico">
+    <title>Using Babel and Webpack - ECMAScript 6 Tutorial</title>
+
+    
+    <link href="./Using Babel and Webpack - ECMAScript 6 Tutorial_files/bootstrap.min.css" rel="stylesheet">
+    <link href="./Using Babel and Webpack - ECMAScript 6 Tutorial_files/css" rel="stylesheet" type="text/css">
+
+    
+    <link href="./Using Babel and Webpack - ECMAScript 6 Tutorial_files/microsite.css" rel="stylesheet">
+
+    
+    
+
+    
+<script id="twitter-wjs" src="./Using Babel and Webpack - ECMAScript 6 Tutorial_files/widgets.js.download"></script><script async="" src="./Using Babel and Webpack - ECMAScript 6 Tutorial_files/analytics.js.download"></script><script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-721308-2', 'auto');
+ga('send', 'pageview');
+</script>
+
+
+    <link href="./Using Babel and Webpack - ECMAScript 6 Tutorial_files/prism.css" rel="stylesheet">
+<script type="text/javascript" async="" src="./Using Babel and Webpack - ECMAScript 6 Tutorial_files/embed.js.download"></script><script type="text/javascript" charset="utf-8" async="" src="./Using Babel and Webpack - ECMAScript 6 Tutorial_files/button.7db838345f9545c91ea4497f64abb814.js.download"></script><link rel="preload" as="style" href="https://c.disquscdn.com/next/embed/styles/lounge.ec3c09f8b46e8c265bd6ddaa7468fa42.css"><link rel="preload" as="script" href="https://c.disquscdn.com/next/embed/common.bundle.037f55c32651d22255e90738c195e946.js"><link rel="preload" as="script" href="https://c.disquscdn.com/next/embed/lounge.bundle.4cdd06d0813859ad6b67673516af96c4.js"><link rel="preload" as="script" href="https://disqus.com/next/config.js"><script src="./Using Babel and Webpack - ECMAScript 6 Tutorial_files/alfie.f51946af45e0b561c60f768335c9eb79.js.download" async="" charset="UTF-8"></script></head>
+
+<body class="dreamhouse" data-gr-c-s-loaded="true">
+
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://ccoenraets.github.io/es6-tutorial-data">ECMAScript 6 Tutorial</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="https://github.com/ccoenraets/es6-tutorial-data"><img src="./Using Babel and Webpack - ECMAScript 6 Tutorial_files/GitHub-Mark-32px.png" style="border: none;margin: -4px 0;height: 32px;width: 32px;">
+                    GitHub</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+
+
+<header class="sb-page-header">
+    <div class="container">
+        <h1>Using Babel and Webpack</h1>
+    </div>
+</header>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+            
+
+<p>In this unit, you modify the existing application and use some new ECMAScript 6 features. You then set up a build environment using Babel and Webpack.</p>
+
+<h2 id="step-1-use-new-ecmascript-6-features">Step 1: Use New ECMAScript 6 Features</h2>
+
+<ol>
+<li><p>Open <code>js/app.js</code> in your favorite code editor.</p></li>
+
+<li><p>Modify the application as follows to use some of the new features in ECMAScript 6:</p>
+
+<ul>
+<li>Replace all <code>var</code> definitions with <code>let</code></li>
+<li>Replace all <code>function()</code> definitions with arrow functions</li>
+<li>Replace string concatenation with template strings</li>
+<li>Do <strong>NOT</strong> use ECMAScript 6 promises yet. You will do that in the next unit.
+<br></li>
+</ul>
+
+
+    
+
+
+<div class="alert alert-info" role="alert">
+    If you are not familiar with these features, make sure you complete <a href="http://ccoenraets.github.io/es6-tutorial/">this tutorial</a> first.
+</div>
+
+
+    
+</li>
+</ol>
+
+<h2 id="step-2-set-up-babel-and-webpack">Step 2: Set Up Babel and Webpack</h2>
+
+<p>Now that the application uses ECMAScript 6 features, you need to compile it using Babel.</p>
+
+<ol>
+<li><p>Open a command prompt, and navigate (<code>cd</code>) to the <code>es6-tutorial-data</code> directory.</p></li>
+
+<li><p>Type the following command to install the Babel and Webpack modules:</p>
+
+<pre class=" language-bash"><code class=" language-bash"><span class="token function">npm</span> <span class="token function">install</span> babel-core babel-loader babel-preset-es2015 webpack --save-dev
+</code></pre></li>
+
+<li><p>In the <code>es6-tutorial-data</code> directory, create a new file named <code>webpack.config.js</code> defined as follows:</p>
+
+<pre class=" language-javascript"><code class=" language-javascript"> <span class="token keyword">var</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token keyword">var</span> webpack <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'webpack'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+     entry<span class="token punctuation">:</span> <span class="token string">'./js/app.js'</span><span class="token punctuation">,</span>
+     output<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+         path<span class="token punctuation">:</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'build'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+         filename<span class="token punctuation">:</span> <span class="token string">'app.bundle.js'</span>
+     <span class="token punctuation">}</span><span class="token punctuation">,</span>
+     module<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+         loaders<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+             <span class="token punctuation">{</span>
+                 test<span class="token punctuation">:</span> <span class="token regex">/\.js$/</span><span class="token punctuation">,</span>
+                 loader<span class="token punctuation">:</span> <span class="token string">'babel-loader'</span><span class="token punctuation">,</span>
+                 query<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                     presets<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'es2015'</span><span class="token punctuation">]</span>
+                 <span class="token punctuation">}</span>
+             <span class="token punctuation">}</span>
+         <span class="token punctuation">]</span>
+     <span class="token punctuation">}</span><span class="token punctuation">,</span>
+     stats<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+         colors<span class="token punctuation">:</span> <span class="token boolean">true</span>
+     <span class="token punctuation">}</span><span class="token punctuation">,</span>
+     devtool<span class="token punctuation">:</span> <span class="token string">'source-map'</span>
+ <span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></li>
+
+<li><p>Open <code>package.json</code> in your favorite code editor. In the <code>scripts</code> section, add a script named <strong>webpack</strong> that builds your application using Webpack and Babel. The <code>scripts</code> section should now look like this:</p>
+
+<pre class=" language-json"><code class=" language-json"><span class="token property">"scripts"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"webpack"</span><span class="token operator">:</span> <span class="token string">"webpack"</span><span class="token punctuation">,</span>
+    <span class="token property">"start"</span><span class="token operator">:</span> <span class="token string">"http-server"</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+</code></pre></li>
+
+<li><p>In the <code>es6-tutorial-data</code> directory, create a <code>build</code> directory to host the compiled version of the application.</p>
+
+
+    
+
+
+<div class="alert alert-info" role="alert">
+    The build process will fail if you don’t create the build directory
+</div>
+
+
+    
+</li>
+</ol>
+
+<h2 id="step-3-build-and-run">Step 3: Build and Run</h2>
+
+<ol>
+<li><p>On the command line, make sure you are in the <code>es6-tutorial-data</code> directory, and type the following command to build the app:</p>
+
+<pre class=" language-bash"><code class=" language-bash"> <span class="token function">npm</span> run webpack
+</code></pre></li>
+
+<li><p>Open <strong>index.html</strong> in your code editor, and modify the <code>&lt;script&gt;</code> tag as follows to load <code>build/app.bundle.js</code>, the compiled version of <code>js/app.js</code>:</p>
+
+<pre class=" language-html"><code class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>build/app.bundle.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre></li>
+
+<li><p>Make sure your local http server is started, open a browser and access <a href="http://localhost:8080/">http://localhost:8080</a>.</p></li>
+</ol>
+
+<h2 id="solution">Solution</h2>
+
+<p>The final code for this step is available in <a href="https://github.com/ccoenraets/es6-tutorial-data/tree/step2">this branch</a>.</p>
+
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-default">
+    
+    
+        
+            <div class="panel-heading">Topics</div>
+            <div class="list-group">
+                
+                <a class="list-group-item" href="http://ccoenraets.github.io/es6-tutorial-data/project-setup/">Setting Up Your Project</a>
+                
+                <a class="list-group-item" href="http://ccoenraets.github.io/es6-tutorial-data/babel-webpack/">Using Babel and Webpack</a>
+                
+                <a class="list-group-item" href="http://ccoenraets.github.io/es6-tutorial-data/promisify/">Promisifying XMLHttpRequest</a>
+                
+                <a class="list-group-item" href="http://ccoenraets.github.io/es6-tutorial-data/modules/">Modularizing HTTP Requests</a>
+                
+                <a class="list-group-item" href="http://ccoenraets.github.io/es6-tutorial-data/data-service/">Creating a Data Service</a>
+                
+                <a class="list-group-item" href="http://ccoenraets.github.io/es6-tutorial-data/data-service-mock/">Creating a Mock Data Service</a>
+                
+            </div>
+        
+    
+</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div style="margin-top: 6px">
+                <iframe id="twitter-widget-1" scrolling="no" frameborder="0" allowtransparency="true" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button" title="Twitter Tweet Button" src="./Using Babel and Webpack - ECMAScript 6 Tutorial_files/tweet_button.ef2c8913b9245291df4f0101c0de2cf8.en.html" style="position: static; visibility: visible; width: 76px; height: 28px;" data-url="http://ccoenraets.github.io/es6-tutorial-data"></iframe> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                <iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" class="twitter-follow-button twitter-follow-button-rendered" title="Twitter Follow Button" src="./Using Babel and Webpack - ECMAScript 6 Tutorial_files/follow_button.ef2c8913b9245291df4f0101c0de2cf8.en.html" style="position: static; visibility: visible; width: 159px; height: 28px;" data-screen-name="ccoenraets"></iframe> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+            </div>
+            <div class="row" style="margin-top:20px;margin-bottom:20px">
+<div class="col-sm-12">
+
+
+    
+        
+        
+        
+            
+        
+            
+                
+                    
+                    
+                    <a href="http://ccoenraets.github.io/es6-tutorial-data/project-setup/" class="btn btn-default"><i class="glyphicon glyphicon-chevron-left"></i> Previous</a>
+                
+                
+                
+                    
+                    <a href="http://ccoenraets.github.io/es6-tutorial-data/promisify/" class="btn btn-default pull-right">Next <i class="glyphicon glyphicon-chevron-right"></i></a>
+                
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    
+
+</div>
+</div>
+
+            <div id="disqus_thread"><iframe id="dsq-app1944" name="dsq-app1944" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" title="Disqus" width="100%" src="./Using Babel and Webpack - ECMAScript 6 Tutorial_files/saved_resource.html" style="width: 1px !important; min-width: 100% !important; border: none !important; overflow: hidden !important; height: 520px !important;" horizontalscrolling="no" verticalscrolling="no"></iframe></div>
+<script type="text/javascript">
+    var disqus_shortname = 'es6datatutorial';
+    var disqus_identifier = 'http:\/\/ccoenraets.github.io\/es6-tutorial-data\/babel-webpack\/';
+    var disqus_title = 'Using Babel and Webpack';
+    var disqus_url = 'http:\/\/ccoenraets.github.io\/es6-tutorial-data\/babel-webpack\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <hr style="margin-top:30px;background: #EBEEEF">
+            <footer style="margin-top:20px;">
+                <p>Written by Christophe Coenraets (<a href="https://twitter.com/ccoenraets">@ccoenraets</a>), Developer Evangelist at <a href="http://developer.salesforce.com/">Salesforce</a>.</p>
+            </footer>
+        </div>
+    </div>
+</div>
+
+
+<script src="./Using Babel and Webpack - ECMAScript 6 Tutorial_files/jquery.min.js.download"></script>
+<script src="./Using Babel and Webpack - ECMAScript 6 Tutorial_files/prism.js.download"></script>
+
+
+<iframe scrolling="no" frameborder="0" allowtransparency="true" src="./Using Babel and Webpack - ECMAScript 6 Tutorial_files/widget_iframe.ef2c8913b9245291df4f0101c0de2cf8.html" title="Twitter settings iframe" style="display: none;"></iframe><iframe style="display: none;" src="./Using Babel and Webpack - ECMAScript 6 Tutorial_files/saved_resource(1).html"></iframe><iframe id="rufous-sandbox" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: none;" title="Twitter analytics iframe" src="./Using Babel and Webpack - ECMAScript 6 Tutorial_files/saved_resource(2).html"></iframe></body></html>
