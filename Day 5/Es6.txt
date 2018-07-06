@@ -1,3 +1,5 @@
+Mst read for var vs let - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let
+
 function radius(r){
 var pi=3.14;
 return pi*r*r;
